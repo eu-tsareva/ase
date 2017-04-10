@@ -30,7 +30,7 @@ var path = {
   },
   src: {
     html: 'src/pages/*.+(html|njk)',
-    njk: 'src/pages/partials/',
+    njk: 'src/pages/',
     js: 'src/js/',
     jsx: 'src/js/partials/app.jsx',
     scss: 'src/style/main.scss',
@@ -58,11 +58,11 @@ var config = {
 
 gulp.task('html-build', function () {
   gulp.src(path.src.html)
-      // .pipe(njkRender(
-      //   {
-      //     path: ['./partials/']
-      //   }
-      // ))
+      .pipe(njkRender(
+        {
+          path: [path.src.njk]
+        }
+      ))
       .pipe(gulp.dest(path.build.html))
       .pipe(reload({stream: true}));
 });
