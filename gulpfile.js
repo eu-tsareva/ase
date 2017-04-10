@@ -23,14 +23,14 @@ var gulp = require('gulp'),
 
 var path = {
   build: {
-    html: 'www/pages/',
+    html: 'www/',
     js: 'www/js/',
     css: 'www/css/',
     img: 'www/img/'
   },
   src: {
-    html: 'src/pages/**/*.+(html|njk)',
-    // njk: 'src/pages/partials/*.njk',
+    html: 'src/pages/*.+(html|njk)',
+    njk: 'src/pages/partials/',
     js: 'src/js/',
     jsx: 'src/js/partials/app.jsx',
     scss: 'src/style/main.scss',
@@ -49,7 +49,7 @@ var path = {
 
 var config = {
   server: {
-      baseDir: "./www/pages"
+      baseDir: "www/"
   },
   tunnel: true,
   host: 'localhost',
@@ -58,7 +58,11 @@ var config = {
 
 gulp.task('html-build', function () {
   gulp.src(path.src.html)
-      .pipe(njkRender())
+      // .pipe(njkRender(
+      //   {
+      //     path: ['./partials/']
+      //   }
+      // ))
       .pipe(gulp.dest(path.build.html))
       .pipe(reload({stream: true}));
 });
@@ -83,9 +87,9 @@ gulp.task('js-build', function () {
 });;
 
 gulp.task('style-build', function () {
-  gulp.src(path.src.style)
+  gulp.src(path.src.scss)
       .pipe(sourcemaps.init())
-      .pipe(sass())
+      .pipe(sass().on('error', sass.logError))
       .pipe(prefixer())
       .pipe(cssmin())
       .pipe(sourcemaps.write())
@@ -114,7 +118,7 @@ gulp.task('image-build', function () {
 
 
 gulp.task('build', function(cb) {
-  runSequence(/*'fonts-build', */['image-build', 'style-build', 'html-build'], 'jsx-build', 'js-build', cb);
+  runSequence(/*'fonts-build', */'jsx-build', 'js-build', ['image-build', 'style-build', 'html-build'], cb);
 });
 
 gulp.task('watch', ['build'], function(){
