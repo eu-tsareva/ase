@@ -1,8 +1,21 @@
-@import './materialize/_mixins.scss';
+//materialize mixins
 @import './materialize/_color.scss';
 
+//custom variables
+@import './variables.scss';
+// materialize variables
 @import './materialize/_variables.scss';
 
+//materialize reset
 @import './materialize/_normalize.scss';
 
+//materialize components
+@import './materialize/_global.scss';
+@import './materialize/_icons-material-design.scss';
 @import './materialize/_grid.scss';
+@import './materialize/_navbar.scss';
+@import './materialize/_dropdown.scss';
+
+//custom components
+@import './global.scss';
+@import './navbar.scss';

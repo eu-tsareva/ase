@@ -37,8 +37,8 @@ var path = {
     img: 'src/img/**/*.*'
   },
   watch: {
-    html: 'src/pages/*.html',
-    njk: 'src/pages/partials/*.njk',
+    html: 'src/pages/**/*.+(html|njk)',
+    // njk: 'src/pages/partials/*.njk',
     js: 'src/js/*.js',
     jsx: 'src/js/partials/*.jsx',
     style: 'src/style/*.scss',
@@ -98,15 +98,14 @@ gulp.task('style-build', function () {
 });
 
 gulp.task('image-build', function () {
-  return
-    gulp.src(path.src.img)
-        .pipe(cache(imagemin ([
-          imagemin.gifsicle({interlaced: true}),
-          imagemin.jpegtran({progressive: true}),
-          imagemin.optipng({use: pngquant()})
-        ])))
-        .pipe(gulp.dest(path.build.img))
-        .pipe(reload({stream: true}));
+  return gulp.src(path.src.img)
+              .pipe(cache(imagemin ([
+                imagemin.gifsicle({interlaced: true}),
+                imagemin.jpegtran({progressive: true}),
+                imagemin.optipng({use: pngquant()})
+              ])))
+              .pipe(gulp.dest(path.build.img))
+              .pipe(reload({stream: true}));
 });
 //
 // gulp.task('fonts-build', function() {

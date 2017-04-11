@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Nav from './nav.jsx';
+// import Nav from './nav.jsx';
 
 
-ReactDOM.render(<Nav />, document.getElementById('test'));
+// ReactDOM.render(<Nav />, document.getElementById('test'));
