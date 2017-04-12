@@ -27,5 +27,11 @@
       $(this).siblings('.map').toggleClass('hide');
     });
 
+    //footer dropdowns
+    $('.footer-show').on('click', function(e) {
+      $(this).parent().siblings('ul').toggleClass('hide-on-small-and-down');
+      $(this).toggleClass('closed');
+    });
+
   }); // end of document ready
 })(jQuery); // end of jQuery name space
