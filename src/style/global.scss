@@ -45,6 +45,7 @@ ul {
     color: #aeaeae;
   }
 
+
   // .footer-copyright {
   //   overflow: hidden;
   //   min-height: 50px;
@@ -56,3 +57,25 @@ ul {
   //   // @extend .light;
   // }
 }
+
+// Icons
+.icon {
+  position: relative;
+  padding-left: 20px;
+
+  &::before {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 4px;
+    left: 0;
+    bottom: 0;
+    content: "";
+
+    background: transparent url('../img/icons.png') no-repeat;
+  }
+}
+
+.icon-location::before { background-position: 0 -26px };
+.icon-email::before { background-position: 0 -52px };
+.icon-phone::before { background-position: 0 0 };
