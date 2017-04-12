@@ -21,5 +21,11 @@
       }
     });
 
+    //show map
+    $('.show-map').on('click', function(e) {
+      e.preventDefault();
+      $(this).siblings('.map').toggleClass('hide');
+    });
+
   }); // end of document ready
 })(jQuery); // end of jQuery name space
