@@ -1,11 +1,18 @@
 nav {
   @extend .z-depth-0;
+  line-height: normal;
   background-color: $navbar-bg-color;
   border-bottom: 2px solid #aeaeae;
+  transition: height 0.2s;
 
+  // Navbar Logo
   .brand-logo.center {
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
+    img {
+      height: 45px;
+      width: auto;
+    }
   }
 
   // Navbar Links
@@ -13,18 +20,12 @@ nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-
-    &.left {
-      left: 0;
-    }
-
-    &.right {
-      right: 0;
-    }
+    &.left { left: 0; }
+    &.right { right: 0; }
 
     li {
       &:not(:last-child) {
-        padding-right: 15px;
+        padding-right: 26px;
       }
       &.active {
         background-color: inherit;
@@ -32,67 +33,67 @@ nav {
     }
     a {
       padding: 0;
-
       &:hover {
         background-color: inherit;
       }
+      svg {
+        width: auto;
+        height: 26px;
+
+        fill: #000;
+      }
     }
   }
-
-//   // Navbar Search Form
-//   form {
-//     height: 100%;
-//   }
-//
-//   .input-field {
-//     margin: 0;
-//     height: 100%;
-//
-//     input {
-//       height: 100%;
-//       font-size: 1.2rem;
-//       border: none;
-//       padding-left: 2rem;
-//
-//       &:focus, &[type=text]:valid, &[type=password]:valid,
-//       &[type=email]:valid, &[type=url]:valid, &[type=date]:valid {
-//         border: none;
-//         box-shadow: none;
-//       }
-//     }
-//
-//     label {
-//       top: 0;
-//       left: 0;
-//
-//       i {
-//         color: rgba(255,255,255,.7);
-//         transition: color .3s;
-//       }
-//       &.active i { color: $navbar-font-color; }
-//     }
-//   }
 }
 
-// Fixed Navbar
-.navbar-fixed {
-  position: relative;
-  height: $navbar-height-mobile;
-  z-index: 997;
+nav.narrow {
+  height: $navbar-narrow-height-mobile;
+}
 
-  nav {
-    position: fixed;
+
+@media #{$medium-only} {
+  nav,
+  .navbar-fixed {
+    height: $navbar-height-tablet;
+    line-height: normal;
   }
 }
+
 @media #{$medium-and-up} {
-  nav.nav-extended .nav-wrapper {
-    min-height: $navbar-height;
-  }
   nav {
+    .brand-logo.center img {
+      height: 56px;
+    }
+    ul {
+      li:not(:last-child) {
+        padding-right: 45px;
+      }
+      a svg {
+        height: 40px;
+      }
+    }
+  }
+}
+
+@media #{$large-and-up} {
+  nav,
+  .navbar-fixed {
     height: $navbar-height;
     line-height: normal;
   }
-  .navbar-fixed {
-    height: $navbar-height;
+
+  nav.narrow {
+    height: $navbar-narrow-height;
+    .brand-logo.center img {
+      height: 40px;
+    }
+    ul {
+      li:not(:last-child) {
+        padding-right: 20px;
+      }
+      a svg {
+        height: 30px;
+      }
+    }
   }
 }
