@@ -3,7 +3,7 @@ nav {
   line-height: normal;
   background-color: $navbar-bg-color;
   border-bottom: 2px solid #aeaeae;
-  transition: height 0.2s;
+  transition: height 0.5s;
 
   // Navbar Logo
   .brand-logo.center {
@@ -12,6 +12,7 @@ nav {
     img {
       height: 45px;
       width: auto;
+      transition: height 0.5s;
     }
   }
 
@@ -39,6 +40,7 @@ nav {
       svg {
         width: auto;
         height: 26px;
+        transition: height 0.5s;
 
         fill: #000;
       }

@@ -19,3 +19,13 @@ ul {
 a img {
   display: block;
 }
+
+.container, {
+  max-width: 984px;
+  width: 95%;
+}
+@media #{$medium-and-up} {
+  .container {
+    width: 95%;
+  }
+}
