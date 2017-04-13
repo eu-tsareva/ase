@@ -1,0 +1,9 @@
+<ul class="breadcrumbs">
+  {% for page in breadcrumbs | reverse %}
+    {% if page == 'index' %}
+      <li><a href="/"><img src="../img/logo-blue.png" alt="logo"/></a></li>
+    {% else %}
+      <li><a href="{{ page }}">{{ page }}</a></li>
+    {% endif %}
+  {% endfor %}
+</ul>
