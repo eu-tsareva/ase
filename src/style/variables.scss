@@ -217,13 +217,15 @@
 // 13. Navigation Bar
 // ==========================================================================
 
-$navbar-height: 75px !default;
+$navbar-height: 96px !default;
 // $navbar-line-height: $navbar-height !default;
-$navbar-height-mobile: 64px !default;
+$navbar-height-mobile: 75px !default;
 // $navbar-line-height-mobile: $navbar-height-mobile !default;
+$navbar-height-tablet: 114px !default;
 // $navbar-font-size: 1rem !default;
 $navbar-font-color: #000 !default;
-$navbar-brand-font-size: 2.6rem !default;
+// $navbar-brand-font-size: 2.6rem !default;
+$navbar-bg-color: transparent;
 
 // // 14. Side Navigation
 // // ==========================================================================
