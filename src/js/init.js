@@ -5,19 +5,24 @@
 
     // scroll
     var $nav = $('.page-nav'),
-        $navInner = $nav.children('.nav-wrapper'),
-        $logo = $navInner.find('.brand-logo img');
+        height = $(document).outerHeight(),
+        $window = $(window);
 
-    $(window).on('scroll', function(e){
-      var offset = $(window).scrollTop();
-      if(offset) {
+    $window.on('scroll', function(e){
+      var offset = $window.scrollTop(),
+          alpha = 2*offset/height;
+
+      if (offset) {
+        // if ($nav.hasClass('index')) {
+        //   $nav.removeClass('index');
+        //   $window.scrollTop($window.height());
+        //   alpha = 2*$window.height()/height;
+        // }
         $nav.addClass('narrow');
-        // $logo.addClass('small');
-        // $nav.css({"background-color": "rgba(255, 255, 255, " + offset/100 + ")"});
+        $nav.css({"background-color": "rgba(255, 255, 255, " + alpha + ")"});
       }
       else {
         $nav.removeClass('narrow');
-        // $logo.removeClass('small');
       }
     });
 

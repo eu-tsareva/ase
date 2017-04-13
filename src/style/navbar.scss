@@ -8,12 +8,15 @@ nav {
   // Navbar Logo
   .brand-logo.center {
     top: 50%;
+    width: 65px;
+    height: 45px;
+
+    font-size: 0;
+
+    background: transparent url('../img/logo-big-black.png') no-repeat;
+    background-size: contain;
     transform: translateX(-50%) translateY(-50%);
-    img {
-      height: 45px;
-      width: auto;
-      transition: height 0.5s;
-    }
+    transition: height 0.5s;
   }
 
   // Navbar Links
@@ -48,6 +51,15 @@ nav {
   }
 }
 
+nav.index {
+  .brand-logo.center {
+    background-image: url('../img/logo-big-white.png');
+  }
+  svg {
+    fill: #fff;
+  }
+}
+
 nav.narrow {
   height: $navbar-narrow-height-mobile;
 }
@@ -63,7 +75,8 @@ nav.narrow {
 
 @media #{$medium-and-up} {
   nav {
-    .brand-logo.center img {
+    .brand-logo.center {
+      width: 82px;
       height: 56px;
     }
     ul {
@@ -86,7 +99,8 @@ nav.narrow {
 
   nav.narrow {
     height: $navbar-narrow-height;
-    .brand-logo.center img {
+    .brand-logo.center {
+      width: 58px;
       height: 40px;
     }
     ul {
