@@ -2,6 +2,7 @@
   "pages":[
     {
       "name":"index",
+      "title": "Главная страница",
       "parent": "none",
       "prev": "none",
       "next": "none",
@@ -9,6 +10,7 @@
     },
     {
       "name": "custom",
+      "title": "Типовая страница",
       "parent": "index",
       "prev": "customPrev",
       "next": "customNext",
@@ -16,6 +18,7 @@
     },
     {
       "name": "customChild",
+      "title": "Потомок",
       "parent": "custom",
       "prev": "none",
       "next": "none",
@@ -23,6 +26,7 @@
     },
     {
       "name": "customPrev",
+      "title": "Предыдущий",
       "parent": "index",
       "prev": "none",
       "next": "custom",
@@ -30,6 +34,7 @@
     },
     {
       "name": "customNext",
+      "title": "Следующий",
       "parent": "index",
       "prev": "custom",
       "next": "none",

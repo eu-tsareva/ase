@@ -13,11 +13,11 @@
           alpha = 2*offset/height;
 
       if (offset) {
-        // if ($nav.hasClass('index')) {
-        //   $nav.removeClass('index');
-        //   $window.scrollTop($window.height());
-        //   alpha = 2*$window.height()/height;
-        // }
+        if ($nav.hasClass('index')) {
+          $nav.removeClass('index');
+          $window.scrollTop($window.height());
+          alpha = 2*$window.height()/height;
+        }
         $nav.addClass('narrow');
         $nav.css({"background-color": "rgba(255, 255, 255, " + alpha + ")"});
       }

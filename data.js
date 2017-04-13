@@ -4,7 +4,13 @@ var fs = require('fs'),
     path = require('path'),
     dataFile = './config.json';
 
-function getBreadCrumbs (filePath) {
+function getTitle(filePath) {
+  const name = path.basename(filePath, '.html');
+  const data = getConfigData().pages;
+  return getPageData(name, data).title;
+}
+
+function getBreadCrumbs(filePath) {
   const name = path.basename(filePath, '.html');
   const data = getConfigData().pages;
 
@@ -30,6 +36,7 @@ function getPageData(name, pages) {
 }
 
 module.exports.breadcrumbs = getBreadCrumbs;
+module.exports.title = getTitle;
 //
 // function getParent(alias_to_seek) {
 // 	var parent;

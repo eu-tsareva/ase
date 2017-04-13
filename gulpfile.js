@@ -59,8 +59,10 @@ var config = {
 };
 
 function getDataForFile(file) {
-  var breadcrumbs = pages.breadcrumbs(file.path);
-  console.log(breadcrumbs);
+  return {
+    breadcrumbs: pages.breadcrumbs(file.path),
+    title: pages.title(file.path)
+  };
 }
 
 gulp.task('html-build', function () {
