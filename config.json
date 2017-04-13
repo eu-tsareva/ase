@@ -1,0 +1,39 @@
+{
+  "pages":[
+    {
+      "name":"index",
+      "parent": "none",
+      "prev": "none",
+      "next": "none",
+      "order":"0"
+    },
+    {
+      "name": "custom",
+      "parent": "index",
+      "prev": "customPrev",
+      "next": "customNext",
+      "order": "1"
+    },
+    {
+      "name": "customChild",
+      "parent": "custom",
+      "prev": "none",
+      "next": "none",
+      "order": "2"
+    },
+    {
+      "name": "customPrev",
+      "parent": "index",
+      "prev": "none",
+      "next": "custom",
+      "order": "1"
+    },
+    {
+      "name": "customNext",
+      "parent": "index",
+      "prev": "custom",
+      "next": "none",
+      "order": "1"
+    }
+  ]
+}

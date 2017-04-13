@@ -19,7 +19,9 @@ var gulp = require('gulp'),
     del = require('del'),
     browserSync = require("browser-sync"),
     reload = browserSync.reload,
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    data = require('gulp-data'),
+    pages = require('./data.js');
 
 var path = {
   build: {
@@ -56,13 +58,17 @@ var config = {
   port: 9000
 };
 
+function getDataForFile(file) {
+  var breadcrumbs = pages.breadcrumbs(file.path);
+  console.log(breadcrumbs);
+}
+
 gulp.task('html-build', function () {
   gulp.src(path.src.html)
-      .pipe(njkRender(
-        {
-          path: [path.src.njk]
-        }
-      ))
+      .pipe(data(getDataForFile))
+      .pipe(njkRender({
+        path: [path.src.njk]
+      }))
       .pipe(gulp.dest(path.build.html))
       .pipe(reload({stream: true}));
 });
