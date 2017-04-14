@@ -21,7 +21,8 @@ var gulp = require('gulp'),
     reload = browserSync.reload,
     runSequence = require('run-sequence'),
     data = require('gulp-data'),
-    pagesData = require('./data.js');
+    // pagesData = require('./data.js');
+    pagesData = require('./properties.js');
 
 var path = {
   build: {
@@ -58,12 +59,23 @@ var config = {
   port: 9000
 };
 
+// function getDataForFile(file) {
+//   return {
+//     breadcrumbs: pagesData.breadcrumbs(file.path),
+//     title: pagesData.title(file.path),
+//     prev: pagesData.prev(file.path),
+//     next: pagesData.next(file.path)
+//   };
+// }
+
+
 function getDataForFile(file) {
+  var prop = new pagesData.properties(file.path);
   return {
-    breadcrumbs: pagesData.breadcrumbs(file.path),
-    title: pagesData.title(file.path),
-    prev: pagesData.prev(file.path),
-    next: pagesData.next(file.path)
+    breadcrumbs: prop.getBreadcrumbs(),
+    title: prop.getTitle(),
+    prev: prop.getPrev(),
+    next: prop.getNext()
   };
 }
 
