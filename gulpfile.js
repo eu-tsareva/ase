@@ -21,7 +21,7 @@ var gulp = require('gulp'),
     reload = browserSync.reload,
     runSequence = require('run-sequence'),
     data = require('gulp-data'),
-    pages = require('./data.js');
+    pagesData = require('./data.js');
 
 var path = {
   build: {
@@ -60,8 +60,10 @@ var config = {
 
 function getDataForFile(file) {
   return {
-    breadcrumbs: pages.breadcrumbs(file.path),
-    title: pages.title(file.path)
+    breadcrumbs: pagesData.breadcrumbs(file.path),
+    title: pagesData.title(file.path),
+    prev: pagesData.prev(file.path),
+    next: pagesData.next(file.path)
   };
 }
 

@@ -2,21 +2,22 @@
 
 var fs = require('fs'),
     path = require('path'),
-    dataFile = './config.json';
+    pagesFile = './pagesData.json',
+    navFile = './navData.json';
 
 function getTitle(filePath) {
-  const name = path.basename(filePath, '.html');
-  const data = getConfigData().pages;
-  return getPageData(name, data).title;
+  const pageName = path.basename(filePath, '.html'),
+        data = readFile(pagesFile).pages;
+  return getData(pageName, data).title;
 }
 
 function getBreadCrumbs(filePath) {
-  const name = path.basename(filePath, '.html'),
-        data = getConfigData().pages,
+  const pageName = path.basename(filePath, '.html'),
+        data = readFile(pagesFile).pages,
         breadcrumbs = [];
 
   var recursive = function(name) {
-    var temp = getPageData(name, data),
+    var temp = getData(name, data),
         parent = temp.parent;
     breadcrumbs.push({
       title: temp.title,
@@ -24,29 +25,51 @@ function getBreadCrumbs(filePath) {
     });
     return (parent == 'none') ? breadcrumbs : recursive(parent);
   };
-  return recursive(name);
-  // var temp = getPageData(name, data),
-  //     breadcrumbs = [temp.title],
-  //     parent = temp.parent;
-  //
-	// while (parent != 'none') {
-  //   temp = getPageData(parent, data);
-  //   breadcrumbs.push(temp.title);
-  //   parent = temp.parent;
-	// }
-	// return breadcrumbs;
+  return recursive(pageName);
 }
 
-function getConfigData() {
-  return JSON.parse(fs.readFileSync(dataFile, 'utf8'));
+function getPrev(filePath) {
+  const pageName = path.basename(filePath, '.html'),
+        pages = readFile(pagesFile).pages,
+        page = getData(pageName, pages),
+        prev = page.prev;
+
+  if (prev != 'none') {
+    const nav = readFile(navFile).pages;
+    return getData(prev, nav);
+  }
+  else {
+    return 'none';
+  }
 }
 
-function getPageData(name, pages) {
-  return pages.find(function(page, index, array) { return page.name == name; });
+function getNext(filePath) {
+  const pageName = path.basename(filePath, '.html'),
+        pages = readFile(pagesFile).pages,
+        page = getData(pageName, pages),
+        next = page.next;
+
+  if (next != 'none') {
+    const nav = readFile(navFile).pages;
+    return getData(next, nav);
+  }
+  else {
+    return 'none';
+  }
+}
+
+function readFile(fileName) {
+  return JSON.parse(fs.readFileSync(fileName, 'utf8'));
+}
+
+function getData(name, data) {
+  return data.find(function(item, index, array) { return item.name == name; });
 }
 
 module.exports.breadcrumbs = getBreadCrumbs;
 module.exports.title = getTitle;
+module.exports.prev = getPrev;
+module.exports.next = getNext;
 //
 // function getParent(alias_to_seek) {
 // 	var parent;

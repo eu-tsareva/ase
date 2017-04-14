@@ -1,0 +1,44 @@
+{
+  "pages":[
+    {
+      "name":"index",
+      "title": "Главная страница",
+      "parent": "none",
+      "prev": "none",
+      "next": "none",
+      "order":"0"
+    },
+    {
+      "name": "custom",
+      "title": "Типовая страница",
+      "parent": "index",
+      "prev": "customPrev",
+      "next": "customNext",
+      "order": "1"
+    },
+    {
+      "name": "customChild",
+      "title": "Потомок",
+      "parent": "custom",
+      "prev": "none",
+      "next": "none",
+      "order": "2"
+    },
+    {
+      "name": "customPrev",
+      "title": "Предыдущий",
+      "parent": "index",
+      "prev": "none",
+      "next": "custom",
+      "order": "1"
+    },
+    {
+      "name": "customNext",
+      "title": "Следующий",
+      "parent": "index",
+      "prev": "custom",
+      "next": "none",
+      "order": "1"
+    }
+  ]
+}

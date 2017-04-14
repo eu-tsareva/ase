@@ -1,0 +1,28 @@
+{
+  "pages": [
+    {
+      "name": "index",
+      "title": "none",
+      "text": "none",
+      "image": "index-img.jpg"
+    },
+    {
+      "name": "custom",
+      "title": "Типовая страница",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "image": "custom.jpg"
+    },
+    {
+      "name": "customPrev",
+      "title": "Предыдущий",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "image": "prev-img.jpg"
+    },
+    {
+      "name": "customNext",
+      "title": "Следующий",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "image": "next-img.jpg"
+    }
+  ]
+}
