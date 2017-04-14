@@ -11,20 +11,30 @@ function getTitle(filePath) {
 }
 
 function getBreadCrumbs(filePath) {
-  const name = path.basename(filePath, '.html');
-  const data = getConfigData().pages;
+  const name = path.basename(filePath, '.html'),
+        data = getConfigData().pages,
+        breadcrumbs = [];
 
-  var breadcrumbs = [name],
-      temp = getPageData(name, data),
-      parent = temp.parent;
-
-	while (parent != 'none') {
-		breadcrumbs.push(parent);
-    temp = getPageData(parent, data);
-    parent = temp.parent;
-    // console.log(temp, parent);
-	}
-	return breadcrumbs;
+  var recursive = function(name) {
+    var temp = getPageData(name, data),
+        parent = temp.parent;
+    breadcrumbs.push({
+      title: temp.title,
+      name: temp.name
+    });
+    return (parent == 'none') ? breadcrumbs : recursive(parent);
+  };
+  return recursive(name);
+  // var temp = getPageData(name, data),
+  //     breadcrumbs = [temp.title],
+  //     parent = temp.parent;
+  //
+	// while (parent != 'none') {
+  //   temp = getPageData(parent, data);
+  //   breadcrumbs.push(temp.title);
+  //   parent = temp.parent;
+	// }
+	// return breadcrumbs;
 }
 
 function getConfigData() {
