@@ -1,9 +1,13 @@
-<ul class="breadcrumbs">
-  {% for page in breadcrumbs | reverse %}
-    {% if page == 'index' %}
-      <li><a href="/"><img src="../img/logo-blue.png" alt="logo"/></a></li>
-    {% else %}
-      <li><a href="{{ page }}">{{ page }}</a></li>
-    {% endif %}
-  {% endfor %}
-</ul>
+<div class="nav-section">
+  <div class="container">
+    <div class="breadcrumbs">
+      {% for page in breadcrumbs | reverse %}
+        {% if page.name == 'index' %}
+          <a class="breadcrumb" href="/"><img src="../img/logo-blue.png" alt="logo"/></a>
+        {% else %}
+          <a class ="breadcrumb" href="{{ page.name }}">{{ page.title }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
