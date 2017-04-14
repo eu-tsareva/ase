@@ -1,0 +1,31 @@
+<div class="document-nav">
+  <div class="container">
+    <div class="row">
+      <div class="col m6 s12">
+        {% if prev != 'none' %}
+          <a class="document-link" href="{{ prev.name }}">Предыдущий раздел</a>
+          <img src="../img/{{ prev.image }}" alt="" />
+          <h3>{{ prev.title }}</h3>
+          <p>{{ prev.text }}</p>
+        {% endif %}
+      </div>
+      <div class="col m6 s12">
+        {% if next != 'none' %}
+          <a class="document-link" href="{{ next.name }}">Следующий раздел</a>
+          <img src="../img/{{ next.image }}" alt="" />
+          <h3>{{ next.title }}</h3>
+          <p>{{ next.text }}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="breadcrumbs">
+      {% for page in breadcrumbs | reverse %}
+        {% if page.name == 'index' %}
+          <a class="breadcrumb" href="/"><img src="../img/logo-blue.png" alt="logo"/></a>
+        {% else %}
+          <a class ="breadcrumb" href="{{ page.name }}">{{ page.title }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

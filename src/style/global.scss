@@ -22,8 +22,9 @@ a img {
 
 // Footer
 .page-footer {
-  margin-top: 25px;
+  // margin-top: 25px; //uncommen when body bg-color is white
   padding: 0;
+  padding-top: 25px; // delete when body bg-color is white
 
   .footer-section {
     padding-top: 6px;
@@ -110,8 +111,37 @@ a img {
 }
 
 // Navigation through sections
-.nav-section {
+.document-nav {
   background-color: #fff; // delete when body color is white
+
+  .document-link {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.33333333333333rem;
+    color: #666666;
+    border-bottom: 1px solid #95989a;
+  }
+
+  img {
+    float: left;
+    margin-right: 10px;
+  }
+
+  h3 {
+    margin: 0;
+
+    font-size: 1.6rem;
+    line-height: 1.2;
+    color: #003594;
+  }
+
+  p {
+    margin: 0.29rem 0;
+
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
 }
 
 // Breadcrumbs
