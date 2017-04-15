@@ -22,7 +22,7 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     data = require('gulp-data'),
     // pagesData = require('./data.js');
-    pagesData = require('./properties.js');
+    //pagesData = require('./properties.js');
 
 var path = {
   build: {
@@ -81,7 +81,7 @@ function getDataForFile(file) {
 
 gulp.task('html-build', function () {
   gulp.src(path.src.html)
-      .pipe(data(getDataForFile))
+      //.pipe(data(getDataForFile))
       .pipe(njkRender({
         path: [path.src.njk]
       }))
