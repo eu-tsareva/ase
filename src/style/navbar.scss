@@ -1,8 +1,7 @@
 nav {
   @extend .z-depth-0;
-  line-height: normal;
+  line-height: 1;
   background-color: $navbar-bg-color;
-  border-bottom: 2px solid #aeaeae;
   transition: height 0.5s;
 
   // Navbar Logo
@@ -13,10 +12,10 @@ nav {
 
     font-size: 0;
 
-    background: transparent url('../img/logo-big-black.png') no-repeat;
+    background: transparent url('../img/logo-big-white.png') no-repeat;
     background-size: contain;
     transform: translateX(-50%) translateY(-50%);
-    transition: height 0.5s;
+    transition: all 0.5s;
   }
 
   // Navbar Links
@@ -35,33 +34,43 @@ nav {
         background-color: inherit;
       }
     }
-    a {
+    .nav-icon {
+      $size: 35px;
+      width: $size;
+      height: $size;
       padding: 0;
+
+      font-size: 0;
+      line-height: 1;
+
+      background: transparent center center no-repeat;
+      background-size: $size $size;
+      transition: all 0.5s;
+      filter:invert(100%);
+
       &:hover {
         background-color: inherit;
       }
-      svg {
-        width: auto;
-        height: 26px;
-        transition: height 0.5s;
-
-        fill: #000;
-      }
     }
-  }
-}
-
-nav.index {
-  .brand-logo.center {
-    background-image: url('../img/logo-big-white.png');
-  }
-  svg {
-    fill: #fff;
+    .nav-icon-menu { background-image: url('../img/menu.svg'); }
+    .nav-icon-search { background-image: url('../img/search.svg'); }
+    .nav-icon-language { background-image: url('../img/language.svg'); }
+    .nav-icon-upload { background-image:  url('../img/upload.svg'); }
   }
 }
 
 nav.narrow {
   height: $navbar-narrow-height-mobile;
+  border-bottom: 2px solid #aeaeae;
+  .brand-logo.center {
+    background-image: url('../img/logo-big-black.png');
+    transform: translateX(-50%) translateY(-50%) scale(0.7);
+  }
+  .nav-icon {
+    filter: invert(0);
+    transform: scale(0.85);
+    background-size: 85%;
+  }
 }
 
 
@@ -69,22 +78,21 @@ nav.narrow {
   nav,
   .navbar-fixed {
     height: $navbar-height-tablet;
-    line-height: normal;
+    line-height: 1;
   }
 }
 
 @media #{$medium-and-up} {
   nav {
-    .brand-logo.center {
-      width: 82px;
-      height: 56px;
-    }
     ul {
       li:not(:last-child) {
         padding-right: 45px;
       }
-      a svg {
-        height: 40px;
+      .nav-icon {
+        $size: 40px;
+        width: $size;
+        height: $size;
+        background-size: $size $size;
       }
     }
   }
@@ -94,22 +102,20 @@ nav.narrow {
   nav,
   .navbar-fixed {
     height: $navbar-height;
-    line-height: normal;
+    line-height: 1;
   }
 
   nav.narrow {
     height: $navbar-narrow-height;
-    .brand-logo.center {
-      width: 58px;
-      height: 40px;
-    }
     ul {
       li:not(:last-child) {
         padding-right: 20px;
       }
-      a svg {
-        height: 30px;
+      .nav-icon {
+        transform: scale(0.75);
+        background-size: 75%;
       }
     }
+
   }
 }

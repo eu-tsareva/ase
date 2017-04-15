@@ -2,13 +2,13 @@
 
 var fs = require('fs'),
     path = require('path'),
-    pagesFile = './data/pagesData.json',
-    navFile = './data/navData.json';
+    pagesFile = './data/pagesData.json';
+    // navFile = './data/navData.json';
 
 function Properties(filePath) {
   this.pageName = path.basename(filePath, '.html');
   this.pagesData = readFile(pagesFile).pages;
-  this.navData = readFile(navFile).pages;
+  // this.navData = readFile(navFile).pages;
   this.page = getData(this.pageName, this.pagesData);
 
   this.getTitle = function() {

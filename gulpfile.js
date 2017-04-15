@@ -22,7 +22,7 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     data = require('gulp-data'),
     // pagesData = require('./data.js');
-    //pagesData = require('./properties.js');
+    pagesData = require('./properties.js');
 
 var path = {
   build: {
@@ -59,29 +59,20 @@ var config = {
   port: 9000
 };
 
-// function getDataForFile(file) {
-//   return {
-//     breadcrumbs: pagesData.breadcrumbs(file.path),
-//     title: pagesData.title(file.path),
-//     prev: pagesData.prev(file.path),
-//     next: pagesData.next(file.path)
-//   };
-// }
-
 
 function getDataForFile(file) {
   var prop = new pagesData.properties(file.path);
   return {
-    breadcrumbs: prop.getBreadcrumbs(),
+    // breadcrumbs: prop.getBreadcrumbs(),
     title: prop.getTitle(),
-    prev: prop.getPrev(),
-    next: prop.getNext()
+    // prev: prop.getPrev(),
+    // next: prop.getNext()
   };
 }
 
 gulp.task('html-build', function () {
   gulp.src(path.src.html)
-      //.pipe(data(getDataForFile))
+      .pipe(data(getDataForFile))
       .pipe(njkRender({
         path: [path.src.njk]
       }))

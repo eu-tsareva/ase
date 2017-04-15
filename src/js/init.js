@@ -10,20 +10,22 @@
 
     $window.on('scroll', function(e){
       var offset = $window.scrollTop(),
-          alpha = 2*offset/height;
+          alpha;
 
       if (offset) {
-        if ($nav.hasClass('index')) {
-          $nav.removeClass('index');
-          $window.scrollTop($window.height());
-          alpha = 2*$window.height()/height;
-        }
+        // if ($nav.hasClass('index')) {
+        //   $nav.removeClass('index');
+        //   $window.scrollTop($window.height());
+        //   alpha = offset/$window.height();console.log(offset, $window.height(), alpha);
+        // }
         $nav.addClass('narrow');
-        $nav.css({"background-color": "rgba(255, 255, 255, " + alpha + ")"});
+        alpha = 1.5 * offset / $window.height(); 
       }
       else {
         $nav.removeClass('narrow');
+        alpha = 0;
       }
+      $nav.css({"background-color": "rgba(255, 255, 255, " + alpha + ")"});
     });
 
     //show map
